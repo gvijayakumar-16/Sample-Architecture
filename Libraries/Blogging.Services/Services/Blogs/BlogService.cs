@@ -43,10 +43,11 @@ namespace Blogging.Services.Services.Blogs
         {
             if (model == null)
                 throw new ArgumentNullException();
-            if (model.BlogId > 0)
-                _blogRepository.Update(model);
+            var domainModel = AutoMapper.Mapper.Map<Blog>(model);
+            if (domainModel.BlogId > 0)
+                _blogRepository.Update(domainModel);
             else
-                _blogRepository.Insert(model);
+                _blogRepository.Insert(domainModel);
         }
 
         /// <summary>
