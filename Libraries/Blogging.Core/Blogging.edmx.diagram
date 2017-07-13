@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8c276ad53e934f0ea182607e0a2a598b" Name="Diagram1">
+        <EntityTypeShape EntityType="BloggingModel.Blog" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.Course" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.Department" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.Enrollment" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.OfficeAssignment" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.Person" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloggingModel.Post" Width="1.5" PointX="8" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="BloggingModel.FK_Post_Blog_BlogId" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.FK_dbo_Course_dbo_Department_DepartmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.FK_dbo_Enrollment_dbo_Course_CourseID" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.FK_dbo_Department_dbo_Person_InstructorID" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.FK_dbo_Enrollment_dbo_Person_StudentID" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.FK_dbo_OfficeAssignment_dbo_Person_InstructorID" ManuallyRouted="false" />
+        <AssociationConnector Association="BloggingModel.CourseInstructor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
