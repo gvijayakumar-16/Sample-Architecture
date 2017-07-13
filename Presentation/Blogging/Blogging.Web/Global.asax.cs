@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Blogging.Web.App_Start;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -13,6 +10,7 @@ namespace Blogging.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            AutofacConfig.RegisterComponents();
         }
     }
 }
