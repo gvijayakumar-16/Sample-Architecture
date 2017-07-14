@@ -1,6 +1,8 @@
 ﻿using Blogging.Core;
 using Blogging.Services.Services.Blogs;
+using Blogging.Web.Models.Blogs;
 using System.Web.Mvc;
+using Blogging.Web.Extensions;
 
 namespace Blogging.Web.Controllers
 {
@@ -43,7 +45,7 @@ namespace Blogging.Web.Controllers
         public ActionResult Edit(int id)
         {
             var blog = _blogService.GetBlogByID(id);
-            return View(blog);
+            return View(blog.ToModel());
         }
 
         /// <summary>
@@ -53,9 +55,10 @@ namespace Blogging.Web.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Blog model)
+        public ActionResult Edit(BlogEditModel model)
         {
-            _blogService.SaveBlog(model);
+            var domainModel = _blogService.GetBlogByID(model.Id);
+            _blogService.SaveBlog(model.ToEntity(domainModel));
             return RedirectToAction("List");
         }
 

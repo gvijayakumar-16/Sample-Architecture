@@ -11,6 +11,7 @@ namespace Blogging.Web
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AutofacConfig.RegisterComponents();
+            AutomapperConfig.Init();
         }
     }
 }

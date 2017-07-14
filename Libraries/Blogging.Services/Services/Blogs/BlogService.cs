@@ -44,7 +44,7 @@ namespace Blogging.Services.Services.Blogs
         {
             if (model == null)
                 throw new ArgumentNullException();
-            var domainModel = model;//AutoMapper.Mapper.Map<Blog>(model);
+            var domainModel = model;
             if (domainModel.BlogId > 0)
                 _blogRepository.Update(domainModel, saveChanges);
             else
