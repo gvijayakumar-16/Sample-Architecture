@@ -9,7 +9,8 @@ namespace Blogging.Services.Services.Blogs
         /// Save/Update the blog to DB
         /// </summary>
         /// <param name="model">The blog details</param>
-        void SaveBlog(Blog model);
+        /// <param name="saveChanges">(Optional) Persist changes to DB</param>
+        void SaveBlog(Blog model, bool saveChanges = true);
 
         /// <summary>
         /// Get the blog based on the id

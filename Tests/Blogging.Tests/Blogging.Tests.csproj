@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
+      <HintPath>..\..\Presentation\Blogging\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -45,12 +49,36 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BlogTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Blogging.Core\Blogging.Core.csproj">
+      <Project>{90f200ee-248e-489d-aec1-2b530ff4518c}</Project>
+      <Name>Blogging.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Blogging.Data\Blogging.Data.csproj">
+      <Project>{5d49aede-a669-4597-b51b-821b3a5e0bc3}</Project>
+      <Name>Blogging.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\Blogging.Services\Blogging.Services.csproj">
+      <Project>{1989c53c-4b48-475a-90e8-357662eab487}</Project>
+      <Name>Blogging.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation\Blogging\Blogging.Web\Blogging.Web.csproj">
+      <Project>{d08f0e0d-06ae-4034-afa6-afeda5a06b5f}</Project>
+      <Name>Blogging.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

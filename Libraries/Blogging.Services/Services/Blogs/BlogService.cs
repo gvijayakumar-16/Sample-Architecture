@@ -39,15 +39,16 @@ namespace Blogging.Services.Services.Blogs
         /// Save/Update the blog to DB
         /// </summary>
         /// <param name="model">The blog details</param>
-        public void SaveBlog(Blog model)
+        /// <param name="saveChanges">(Optional) Persist changes to DB</param>
+        public void SaveBlog(Blog model, bool saveChanges = true)
         {
             if (model == null)
                 throw new ArgumentNullException();
-            var domainModel = AutoMapper.Mapper.Map<Blog>(model);
+            var domainModel = model;//AutoMapper.Mapper.Map<Blog>(model);
             if (domainModel.BlogId > 0)
-                _blogRepository.Update(domainModel);
+                _blogRepository.Update(domainModel, saveChanges);
             else
-                _blogRepository.Insert(domainModel);
+                _blogRepository.Insert(domainModel, saveChanges);
         }
 
         /// <summary>
